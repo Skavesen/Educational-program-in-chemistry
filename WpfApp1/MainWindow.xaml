@@ -1,0 +1,84 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="CornerButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="#84c551" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#84c551"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#84c551"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FF599927"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF599927"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Image Source="/Sourse/Фон1.png" Stretch="Fill"/>
+        <Image Source="/Sourse/жираф.png" Height="250" Width="100" Margin="896,705,916,94" RenderTransformOrigin="0.535,0.288"/>
+        <Image Source="/Sourse/кролик.png" Margin="1410,616,240,59"/>
+        <TextBlock Text="Веселая химия" FontSize="100" Foreground="#129931" FontFamily="Segoe Print" Margin="522,230,614,650"></TextBlock>
+        <Button Height="150" Style="{DynamicResource CornerButton}" Foreground="#FF599927"  Margin="262,458,1374,441" Click="Button_Click">
+            <TextBlock Height="53" TextAlignment="Center" Foreground="White" FontSize="40" FontFamily="Times new roman" Text="ТЕОРИЯ" TextWrapping="Wrap" Width="253"/>
+        </Button>
+        <Button Height="150" Style="{DynamicResource CornerButton}" Foreground="#FF599927"  Margin="647,458,989,441" Click="Button_Click_1">
+            <TextBlock Height="92" TextAlignment="Center" Foreground="White" FontSize="35" FontFamily="Times new roman" Text="ТАБЛИЦА МЕНДЕЛЕЕВА" TextWrapping="Wrap" Width="253"/>
+        </Button>
+        <Button Height="150" Style="{DynamicResource CornerButton}" Background="#FF599927" Margin="1057,458,579,441" Click="Button_Click_2">
+            <TextBlock Height="92" TextAlignment="Center" Foreground="White" FontSize="35" FontFamily="Times new roman" Text="СОСТАВ ВЕЩЕСТВА" TextWrapping="Wrap" Width="253"/>
+        </Button>
+        <Button Height="150" Style="{DynamicResource CornerButton}" Background="#FF599927" Margin="1426,458,210,441" Click="Button_Click_3">
+            <TextBlock Height="53" TextAlignment="Center" Foreground="White" FontSize="40" FontFamily="Times new roman" Text="ТЕСТЫ" TextWrapping="Wrap" Width="253"/>
+        </Button>
+    </Grid>
+</Window>

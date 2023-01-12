@@ -1,0 +1,309 @@
+﻿<Window x:Class="WpfApp1.Test1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Test1" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Grid>
+        <Image Source="/Sourse/фон3.jpg" Stretch="Fill"/>
+        <Button x:Name="myButton" Content="Привет" Click="Button_Click" Margin="862,777,924,172">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Grid x:Name="Normal">
+                            <Path Fill="#FF0FB20F" Data="M 0 6 L 12 6 L 6 0 Z" RenderTransformOrigin="0.5,0.5" Height="104.667" Stretch="Fill" Width="98">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                        <Grid x:Name="Active" Visibility="Collapsed">
+                            <Path Fill="#FF0B890B" Data="M 0 6 L 12 6 L 6 0 Z" RenderTransformOrigin="0.5,0.5" Height="104.667" Stretch="Fill" Width="98">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="Normal" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="Active" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Image Source="/Sourse/exit.png" Margin="1834,27,31,978" Stretch="Fill" Panel.ZIndex="3" MouseDown="Image_MouseDown"/>
+        <Grid x:Name="answer" Visibility="Collapsed">
+            <Image Source="/Sourse/доска.jpg" Margin="-56,64,662,277" />
+            <TextBlock x:Name="answerstring" TextAlignment="Left" Foreground="White" FontSize="75" FontFamily="Times new roman" Margin="160,318,792,617"/>
+        </Grid>
+        <Grid x:Name="vopros11" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" Width="800" Height="60" Margin="0,10,80,518">
+                1. Химическое явление:
+            </TextBlock>
+            <Viewbox Height="50" Margin="10,109,662,429">
+                <RadioButton x:Name="radio111" >таяние снега;</RadioButton>
+            </Viewbox>
+            <Viewbox Height="50" Margin="10,203,662,335">
+                <RadioButton x:Name="radio112">испарение воды;</RadioButton>
+            </Viewbox>
+            <Viewbox Height="50" Margin="10,297,662,241">
+                <RadioButton x:Name="radio113">плавление металла;</RadioButton>
+            </Viewbox>
+            <Viewbox Height="50" Margin="10,391,662,147">
+                <RadioButton x:Name="radio114">горение лучины.</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros12" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" Width="800" Height="60" Margin="0,10,80,518">
+                2. Вещество:
+            </TextBlock>
+            <Viewbox Height="50" Margin="10,109,662,429">
+                <RadioButton x:Name="radio121" >кастрюля;</RadioButton>
+            </Viewbox>
+            <Viewbox Height="50" Margin="10,203,662,335">
+                <RadioButton x:Name="radio122">древесина;</RadioButton>
+            </Viewbox>
+            <Viewbox Height="50" Margin="10,297,662,241">
+                <RadioButton x:Name="radio123">пробирка;</RadioButton>
+            </Viewbox>
+            <Viewbox Height="50" Margin="10,391,662,147">
+                <RadioButton x:Name="radio124">капля воды.</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros13" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" Width="800" Height="60" Margin="0,10,80,518">
+                3. Чистое вещество:
+            </TextBlock>
+            <Viewbox Height="50" Margin="0,129,672,409">
+                <RadioButton x:Name="radio131" >кровь;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="0,216,678,320">
+                <RadioButton x:Name="radio132">сталь;</RadioButton>
+            </Viewbox>
+            <Viewbox Height="50" Margin="10,297,662,241">
+                <RadioButton x:Name="radio133">железо;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,369,572,117">
+                <RadioButton x:Name="radio134" >речная вода.</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros14" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" Width="800" Height="60" Margin="0,10,80,518">
+                4. Простое вещество:
+            </TextBlock>
+            <Viewbox Margin="10,129,676,417">
+                <RadioButton x:Name="radio141" >озон О3;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,216,640,322">
+                <RadioButton x:Name="radio142">вода Н2О;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,297,640,224">
+                <RadioButton x:Name="radio143">метан СН4;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,369,470,101">
+                <RadioButton x:Name="radio144" >поваренная соль NaCl.</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros15" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" Width="800" Height="60" Margin="0,10,80,518">
+                5. Чёрное, хрупкое, электропроводное вещество:
+            </TextBlock>
+            <Viewbox Margin="10,129,578,353">
+                <RadioButton x:Name="radio151" >алюминий;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,216,710,296">
+                <RadioButton x:Name="radio152">йод;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,297,640,224">
+                <RadioButton x:Name="radio153">графит;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,369,640,119">
+                <RadioButton x:Name="radio154" >железо.</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros16" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" Width="800" Height="60" Margin="0,10,80,518">
+                6. Физическое явление:
+            </TextBlock>
+            <Viewbox Margin="10,129,378,347">
+                <RadioButton x:Name="radio161" >вытягивание проволоки;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,216,510,291">
+                <RadioButton x:Name="radio162">горение магния;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,297,538,224">
+                <RadioButton x:Name="radio163">взрыв петарды;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,369,510,119">
+                <RadioButton x:Name="radio164" >скисание молока.</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros17" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" Width="800" Height="60" Margin="0,10,80,518">
+                7. Тело:
+            </TextBlock>
+            <Viewbox Margin="10,129,568,347">
+                <RadioButton x:Name="radio171" >алюминий;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,216,538,291">
+                <RadioButton x:Name="radio172">древесина;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,297,626,224">
+                <RadioButton x:Name="radio173">графит;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,369,626,119">
+                <RadioButton x:Name="radio174" >гвоздь.</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros18" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" Width="800" Height="60" Margin="0,10,80,518">
+                8. Смесь:
+            </TextBlock>
+            <Viewbox Margin="10,129,568,347">
+                <RadioButton x:Name="radio181" >алюминий;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,216,650,291">
+                <RadioButton x:Name="radio182">воздух;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,297,686,224">
+                <RadioButton x:Name="radio183">вода;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,369,704,119">
+                <RadioButton x:Name="radio184" >азот.</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros21" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" Width="800" Height="60" Margin="0,10,80,518">
+                1. Выберите вещества, с которыми реагирует оксид бария:
+            </TextBlock>
+            <Viewbox Margin="10,129,568,347">
+                <RadioButton x:Name="radio211" >хлорид натрия;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,216,720,291">
+                <RadioButton x:Name="radio212">вода;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,297,526,224">
+                <RadioButton x:Name="radio213">соляная кислота;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,350,526,138">
+                <RadioButton x:Name="radio214" >гидроксид натрия;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,417,512,71">
+                <RadioButton x:Name="radio215" >оксид углерода (II).</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros22" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" Width="800" Height="60" Margin="0,10,80,518">
+                2. Вещества, с которыми реагирует оксид фосфора (V):
+            </TextBlock>
+            <Viewbox Margin="10,129,568,347">
+                <RadioButton x:Name="radio221" >гидроксид калия;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,216,621,291">
+                <RadioButton x:Name="radio222">оксид бария;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,297,526,224">
+                <RadioButton x:Name="radio223">оксид углерода (IV);</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,350,740,138">
+                <RadioButton x:Name="radio224" >медь;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,417,526,71">
+                <RadioButton x:Name="radio225" >cерная кислота (II).</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros23" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" TextWrapping="Wrap" Margin="0,10,10,459">
+                3. Степень окисления серы равна +6 в соединениях, формулы которых:
+            </TextBlock>
+            <Viewbox Margin="10,129,688,347">
+                <RadioButton x:Name="radio231" >H2SO4;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,216,688,291">
+                <RadioButton x:Name="radio232">K2SO3;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,297,727,224">
+                <RadioButton x:Name="radio233">CaS;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,350,727,138">
+                <RadioButton x:Name="radio234" >SO3;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,417,704,71">
+                <RadioButton x:Name="radio235" >Al2S3.</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros24" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="DarkBlue" FontSize="50" FontFamily="Times new roman" TextWrapping="Wrap" Margin="0,10,10,459">
+                4. Степень окисления азота равна +5 в соединениях, формулы которых:
+            </TextBlock>
+            <Viewbox Margin="10,129,704,347">
+                <RadioButton x:Name="radio241" >HNO3;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,216,704,291">
+                <RadioButton x:Name="radio242">KNO2;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,297,727,224">
+                <RadioButton x:Name="radio243">NO2;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,350,635,138">
+                <RadioButton x:Name="radio244" >Mg(NO3)2;</RadioButton>
+            </Viewbox>
+            <Viewbox Margin="10,417,704,71">
+                <RadioButton x:Name="radio245" >N2O3.</RadioButton>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="vopros31" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="White" FontSize="50" FontFamily="Times new roman" TextWrapping="Wrap" Margin="71,41,55,373">
+                В каких трех агрегатных состояниях могут находится вещества?
+            </TextBlock>
+            <Image Source="/Sourse/доска.jpg" Panel.ZIndex="-1"/>
+            <TextBox x:Name="T1"  Margin="71,220,76,80" Background="Transparent" Foreground="White" BorderThickness="2" FontFamily="Times new roman"
+                 VerticalContentAlignment="Top" Panel.ZIndex="3" Text="" TextWrapping="Wrap"  AcceptsReturn="True" 
+                     FontSize="50" CaretBrush="Transparent"/>
+        </Grid>
+        <Grid x:Name="vopros32" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="White" FontSize="50" FontFamily="Times new roman" TextWrapping="Wrap" Margin="71,41,55,373">
+                Что находится в клетках Периодической системы Менделеева?
+            </TextBlock>
+            <Image Source="/Sourse/доска.jpg" Panel.ZIndex="-1"/>
+            <TextBox x:Name="T2"  Margin="71,220,76,80" Background="Transparent" Foreground="White" BorderThickness="2" FontFamily="Times new roman"
+                 VerticalContentAlignment="Top" Panel.ZIndex="3" Text="" TextWrapping="Wrap"  AcceptsReturn="True" 
+                     FontSize="50" CaretBrush="Transparent"/>
+        </Grid>
+        <Grid x:Name="vopros33" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Left" Foreground="White" FontSize="50" FontFamily="Times new roman" TextWrapping="Wrap" Margin="71,41,55,373">
+                Какую физическую величину называют относительной атомной массой Ar?
+            </TextBlock>
+            <Image Source="/Sourse/доска.jpg" Panel.ZIndex="-1"/>
+            <TextBox x:Name="T3"  Margin="71,220,76,80" Background="Transparent" Foreground="White" BorderThickness="2" FontFamily="Times new roman"
+                 VerticalContentAlignment="Top" Panel.ZIndex="3" Text="" TextWrapping="Wrap"  AcceptsReturn="True" 
+                     FontSize="50" CaretBrush="Transparent"/>
+        </Grid>
+        <Grid x:Name="vopros34" Visibility="Collapsed" Height="588" Width="880" Margin="214,184,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock x:Name="answertext" TextAlignment="Left" Foreground="White" FontSize="50" FontFamily="Times new roman" TextWrapping="Wrap" Margin="71,166,55,248">
+                
+            </TextBlock>
+            <Image Source="/Sourse/доска.jpg" Panel.ZIndex="-1"/>
+        </Grid>
+    </Grid>
+</Window>
